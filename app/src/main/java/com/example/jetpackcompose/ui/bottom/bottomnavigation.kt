@@ -15,16 +15,16 @@ import androidx.navigation.compose.composable
 import com.example.jetpackcompose.ui.screen.history.HistoryScreen
 import com.example.jetpackcompose.ui.screen.home.HomeScreen
 import com.example.jetpackcompose.ui.bottom.items.NavigationItem
-import com.example.jetpackcompose.ui.screen.dashboard.DashboardScreen
+import com.example.jetpackcompose.ui.screen.home.HomeViewModel
 import com.example.jetpackcompose.ui.screen.profile.ProfileScreen
 
 
 @Composable
-fun Navigations(navController: NavHostController) {
+fun Navigations(navController: NavHostController, homeViewModel: HomeViewModel) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
         composable(NavigationItem.Home.route) {
-//            HomeScreen()
-            DashboardScreen()
+            HomeScreen(homeViewModel)
+//            DashboardScreen()
         }
         composable(NavigationItem.History.route) {
             HistoryScreen()

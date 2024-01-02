@@ -7,9 +7,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.jetpackcompose.ui.screen.MainScreen
-import com.example.jetpackcompose.ui.screen.home.HomeScreen
+import com.example.jetpackcompose.ui.screen.home.HomeViewModel
 import com.example.jetpackcompose.ui.theme.PotterComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +26,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-//                    MainScreen(navController = navController)
-                    HomeScreen()
+                    val homeViewModel = viewModel(modelClass = HomeViewModel::class.java)
+
+                    MainScreen(navController = navController, homeViewModel)
+//                    HomeScreen()
                 }
             }
         }

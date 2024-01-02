@@ -21,8 +21,10 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.jetpackcompose.data.model.CharacterItem
 
 @Composable
-fun HomeScreen() {
-    val homeViewModel = viewModel(modelClass = HomeViewModel::class.java)
+fun HomeScreen(
+    homeViewModel : HomeViewModel
+) {
+
     val state by homeViewModel.state.collectAsState()
 
     LazyColumn {
